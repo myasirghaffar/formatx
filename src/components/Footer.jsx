@@ -1,4 +1,4 @@
-import { FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaTiktok, FaGlobe } from "react-icons/fa";
 
 const Footer = () => (
   <footer className="bg-white border-t border-gray-200 pt-10 pb-4 mt-auto">
@@ -43,8 +43,8 @@ const Footer = () => (
     </div>
     <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-end mt-8 pt-8 border-t border-gray-200 gap-6">
       <div className="flex items-center gap-2 text-gray-600 text-base mb-4 md:mb-0">
-        <span className="text-xl">🌐</span>
-        <span>English</span>
+        <span className="text-xl text-gray-900"><FaGlobe /></span>
+        <span className="text-gray-900">English</span>
         <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
       </div>
       <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
@@ -52,7 +52,7 @@ const Footer = () => (
           <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" className="h-12" />
           <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" className="h-12" />
         </div>
-        <div className="flex gap-3 text-2xl text-gray-900">
+        <div className="flex gap-3 text-2xl">
           <a href="#" aria-label="Twitter" className="hover:text-primary"><FaTwitter /></a>
           <a href="#" aria-label="Facebook" className="hover:text-primary"><FaFacebookF /></a>
           <a href="#" aria-label="LinkedIn" className="hover:text-primary"><FaLinkedinIn /></a>

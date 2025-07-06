@@ -196,34 +196,86 @@ const Header = ({ onSignIn = () => {}, onSignUp = () => {} }) => {
           <button className="text-gray-700 px-4 py-2 rounded hover:bg-gray-100 hidden md:block" onClick={onSignIn}>Login</button>
           <button className="bg-primary text-white px-5 py-2 rounded hover:bg-primary/90 font-semibold hidden md:block" onClick={onSignUp}>Sign up</button>
           {/* Mobile icon buttons */}
-          <button className="text-gray-700 p-2 rounded hover:bg-gray-100 md:hidden" onClick={onSignIn} aria-label="Login">
+          <button className="text-primary p-2 rounded hover:bg-gray-100 md:hidden" onClick={onSignIn} aria-label="Login">
             <FaUser className="text-xl" />
           </button>
-          <button className="bg-primary text-white p-2 rounded hover:bg-primary/90 font-semibold md:hidden" onClick={onSignUp} aria-label="Sign up">
+          {/* <button className="bg-primary text-white p-2 rounded hover:bg-primary/90 font-semibold md:hidden" onClick={onSignUp} aria-label="Sign up">
             <FaUserPlus className="text-xl" />
-          </button>
-          <button className="ml-2 p-2 rounded hover:bg-gray-100 md:hidden" onClick={() => setMobileMenuOpen(v => !v)} aria-label="Menu" aria-expanded={mobileMenuOpen}>
+          </button> */}
+          <button className="p-2 rounded hover:bg-gray-100 md:hidden" onClick={() => setMobileMenuOpen(v => !v)} aria-label="Menu" aria-expanded={mobileMenuOpen}>
             <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-menu"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
           </button>
         </div>
       </div>
       {/* Mobile menu overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-20 bg-white z-20 shadow-lg animate-slide-down">
-          <nav className="flex flex-col gap-6 p-6 text-lg font-medium text-gray-700">
-            <Link to="/merge-pdf" className="hover:text-primary" onClick={() => setMobileMenuOpen(false)}>Merge PDF</Link>
-            <Link to="/split-pdf" className="hover:text-primary" onClick={() => setMobileMenuOpen(false)}>Split PDF</Link>
-            <Link to="/compress-pdf" className="hover:text-primary" onClick={() => setMobileMenuOpen(false)}>Compress PDF</Link>
-            <Link to="/convert-pdf" className="hover:text-primary" onClick={() => setMobileMenuOpen(false)}>Convert PDF</Link>
-            <Link to="/all-tools" className="hover:text-primary" onClick={() => setMobileMenuOpen(false)}>All PDF Tools</Link>
-            {/* <div className="flex gap-4 mt-4">
-              <button className="text-gray-700 p-2 rounded hover:bg-gray-100" onClick={() => { setMobileMenuOpen(false); onSignIn(); }} aria-label="Login">
-                <FaUser className="text-2xl" />
-              </button>
-              <button className="bg-primary text-white p-2 rounded hover:bg-primary/90 font-semibold" onClick={() => { setMobileMenuOpen(false); onSignUp(); }} aria-label="Sign up">
-                <FaUserPlus className="text-2xl" />
-              </button>
-            </div> */}
+        <div className="md:hidden fixed inset-0 top-20 bg-white z-20 shadow-lg animate-slide-down overflow-y-auto">
+          <nav className="flex flex-col gap-8 p-6 text-base font-medium text-gray-700">
+            {/* ORGANIZE PDF */}
+            <div>
+              <div className="font-bold text-gray-500 mb-2">ORGANIZE PDF</div>
+              <ul className="space-y-2">
+                <li><Link to="/merge-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFilePdf className="text-red-400" />Merge PDF</Link></li>
+                <li><Link to="/split-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaCut className="text-red-400" />Split PDF</Link></li>
+                <li><Link to="/remove-pages" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaEraser className="text-red-400" />Remove pages</Link></li>
+                <li><Link to="/extract-pages" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFileArchive className="text-red-400" />Extract pages</Link></li>
+                <li><Link to="/organize-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaCogs className="text-red-400" />Organize PDF</Link></li>
+                <li><Link to="/scan-to-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFileMedical className="text-red-400" />Scan to PDF</Link></li>
+              </ul>
+            </div>
+            {/* OPTIMIZE PDF */}
+            <div>
+              <div className="font-bold text-gray-500 mb-2">OPTIMIZE PDF</div>
+              <ul className="space-y-2">
+                <li><Link to="/compress-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaCompress className="text-green-500" />Compress PDF</Link></li>
+                <li><Link to="/repair-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaSyncAlt className="text-green-500" />Repair PDF</Link></li>
+                <li><Link to="/ocr-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaSearch className="text-green-500" />OCR PDF</Link></li>
+              </ul>
+            </div>
+            {/* CONVERT TO PDF */}
+            <div>
+              <div className="font-bold text-gray-500 mb-2">CONVERT TO PDF</div>
+              <ul className="space-y-2">
+                <li><Link to="/jpg-to-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFileImage className="text-yellow-400" />JPG to PDF</Link></li>
+                <li><Link to="/word-to-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFileWord className="text-blue-500" />WORD to PDF</Link></li>
+                <li><Link to="/powerpoint-to-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFilePowerpoint className="text-red-400" />POWERPOINT to PDF</Link></li>
+                <li><Link to="/excel-to-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFileExcel className="text-green-500" />EXCEL to PDF</Link></li>
+                <li><Link to="/html-to-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaRegFileCode className="text-yellow-500" />HTML to PDF</Link></li>
+              </ul>
+            </div>
+            {/* CONVERT FROM PDF */}
+            <div>
+              <div className="font-bold text-gray-500 mb-2">CONVERT FROM PDF</div>
+              <ul className="space-y-2">
+                <li><Link to="/pdf-to-jpg" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFileImage className="text-yellow-400" />PDF to JPG</Link></li>
+                <li><Link to="/pdf-to-word" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFileWord className="text-blue-500" />PDF to WORD</Link></li>
+                <li><Link to="/pdf-to-powerpoint" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFilePowerpoint className="text-red-400" />PDF to POWERPOINT</Link></li>
+                <li><Link to="/pdf-to-excel" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFileExcel className="text-green-500" />PDF to EXCEL</Link></li>
+                <li><Link to="/pdf-to-pdfa" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaFilePdf className="text-blue-400" />PDF to PDF/A</Link></li>
+              </ul>
+            </div>
+            {/* EDIT PDF */}
+            <div>
+              <div className="font-bold text-gray-500 mb-2">EDIT PDF</div>
+              <ul className="space-y-2">
+                <li><Link to="/rotate-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><MdOutlineRotate90DegreesCcw className="text-purple-400" />Rotate PDF</Link></li>
+                <li><Link to="/add-page-numbers" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaListOl className="text-purple-400" />Add page numbers</Link></li>
+                <li><Link to="/add-watermark" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaWater className="text-purple-400" />Add watermark</Link></li>
+                <li><Link to="/crop-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaCrop className="text-purple-400" />Crop PDF</Link></li>
+                <li><Link to="/edit-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaEdit className="text-purple-400" />Edit PDF</Link></li>
+              </ul>
+            </div>
+            {/* PDF SECURITY */}
+            <div>
+              <div className="font-bold text-gray-500 mb-2">PDF SECURITY</div>
+              <ul className="space-y-2">
+                <li><Link to="/unlock-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaUnlock className="text-blue-700" />Unlock PDF</Link></li>
+                <li><Link to="/protect-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaLock className="text-blue-700" />Protect PDF</Link></li>
+                <li><Link to="/sign-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaSignature className="text-blue-700" />Sign PDF</Link></li>
+                <li><Link to="/redact-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaEraser className="text-blue-700" />Redact PDF</Link></li>
+                <li><Link to="/compare-pdf" className="flex items-center gap-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}><FaBalanceScale className="text-blue-700" />Compare PDF</Link></li>
+              </ul>
+            </div>
           </nav>
         </div>
       )}

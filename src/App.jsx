@@ -55,7 +55,7 @@ function App() {
   const switchMode = () => setAuthMode(m => (m === "signin" ? "signup" : "signin"));
 
   return (
-    <div className="min-h-screen bg-[#f7f6fb] flex flex-col font-sans">
+    <div className="min-h-screen bg-[url('/background.svg')] bg-fixed bg-cover bg-center flex flex-col font-sans">
       <ScrollToTop />
       <Header onSignIn={openSignIn} onSignUp={openSignUp} />
       <Routes>
