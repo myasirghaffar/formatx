@@ -9,7 +9,8 @@ const AuthModal = ({ open, onClose, mode, onSwitchMode }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-      <div className="bg-white border-2 border-primary rounded-lg shadow-lg w-full max-w-sm p-8 relative">
+      <div className="bg-white bg-center border-2 border-primary rounded-lg shadow-lg w-full max-w-sm relative">
+      <div className="bg-[url('/background.svg')] bg-contain bg-cover p-8">
         <button onClick={onClose} className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl">&times;</button>
         <h2 className="text-2xl font-bold mb-6 text-center">{mode === "signin" ? "Sign In" : "Sign Up"}</h2>
         <form className="flex flex-col gap-4">
@@ -56,6 +57,7 @@ const AuthModal = ({ open, onClose, mode, onSwitchMode }) => {
             </span>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

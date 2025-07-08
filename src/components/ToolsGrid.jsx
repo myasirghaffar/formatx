@@ -27,7 +27,7 @@ const ToolsGrid = () => (
         {tools.map((tool) => {
           const Icon = tool.icon;
           return (
-            <Link to={`/${tool.path}`} key={tool.title} className="group bg-white p-6 rounded-lg shadow hover:shadow-md transition-shadow flex flex-col items-center text-center cursor-pointer border-2 border-transparent hover:border-green-600">
+            <Link to={`/${tool.path}`} key={tool.title} className="group bg-white hover:bg-green-50 p-6 rounded-md shadow hover:shadow-lg transition-shadow flex flex-col items-left text-left cursor-pointer border-2 border-primary/50 hover:border-green-600">
               <div className="w-12 h-12 bg-primary-light group-hover:bg-green-100 rounded-lg flex items-center justify-center mb-4 transition-colors duration-200">
                 <Icon className="h-6 w-6 text-primary group-hover:text-green-600 transition-colors duration-200" />
               </div>
