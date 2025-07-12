@@ -1,6 +1,5 @@
 import { FaCloudUploadAlt } from "react-icons/fa";
 import React, { useRef, useState } from "react";
-import { uploadPDF } from "../utils/pdfApi";
 
 // Map route path to API endpoint and file input config
 const toolConfig = {
@@ -63,17 +62,21 @@ const ToolPage = ({ title, desc, button }) => {
     <main className="flex flex-col items-center justify-center min-h-[70vh] bg-[#f7f6fb] py-16">
       <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 text-center">{title}</h1>
       <p className="text-lg text-gray-600 mb-10 text-center max-w-2xl">{desc}</p>
-      <div className="flex flex-col items-center bg-white p-8 rounded-lg shadow w-full max-w-md">
+      <div className="flex flex-col items-center bg-white px-6 py-16 rounded-lg shadow w-full max-w-md">
         <input
           type="file"
           ref={fileRef}
           multiple={!!config.multiple}
           accept={config.accept}
-          className="mb-4"
+          className="mb-4 hidden"
+          onChange={async () => {
+            setError("");
+            await handleUpload();
+          }}
         />
         <button
-          className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 rounded transition-all mb-2"
-          onClick={handleUpload}
+          className="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded transition-all mb-2"
+          onClick={() => fileRef.current && fileRef.current.click()}
           disabled={loading}
         >
           <FaCloudUploadAlt /> {button}

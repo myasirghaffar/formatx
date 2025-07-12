@@ -1,5 +1,5 @@
 const SolutionsSection = () => (
-  <section className="py-20 bg-white text-center border-b border-gray-200">
+  <section className="py-20 px-3 bg-white text-center border-b border-gray-200">
     <h2 className="text-3xl font-bold mb-10">Looking for another solution?</h2>
     <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
       <div>
