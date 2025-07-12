@@ -157,7 +157,7 @@ const ToolsGrid = () => (
                 />
               </div>
               {["rotate-pdf", "watermark"].includes(tool.path) && (
-                <span className="absolute top-2 right-2 text-xs text-green-600 font-bold bg-green-100 px-2 py-1 rounded-full border border-green-600 z-10">
+                <span className="absolute top-2 right-2 text-xs text-green-600 font-bold bg-green-100 px-2 py-1 rounded-full border border-green-600 z-5">
                   New Tool
                 </span>
               )}
