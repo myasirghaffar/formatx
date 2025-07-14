@@ -27,14 +27,14 @@ const Header = ({ onSignIn = () => {}, onSignUp = () => {} }) => {
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-10 h-20 flex items-center">
-      <div className="max-w-8xl mx-auto px-4 w-full flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 w-full flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <Link to="/">
             <img src="/logo.png" alt="logo" className="h-14 w-auto" />
           </Link>
         </div>
         <div className="flex items-center space-x-4">
-          <nav className="hidden md:flex gap-x-10 ml-10 text-base font-medium text-gray-700">
+          <nav className="hidden xl:flex gap-x-10 ml-10 text-base font-medium text-gray-700">
             <Link to="/merge-pdf" className="hover:text-primary">MERGE PDF</Link>
             <Link to="/split-pdf" className="hover:text-primary">SPLIT PDF</Link>
             <Link to="/compress-pdf" className="hover:text-primary">COMPRESS PDF</Link>
@@ -193,23 +193,23 @@ const Header = ({ onSignIn = () => {}, onSignUp = () => {} }) => {
         </div>
         <div className="flex items-center space-x-3">
           {/* Desktop buttons */}
-          <button className="text-gray-700 px-4 py-2 rounded hover:bg-gray-100 hidden md:block" onClick={onSignIn}>Login</button>
-          <button className="bg-primary text-white px-5 py-2 rounded hover:bg-primary/90 font-semibold hidden md:block" onClick={onSignUp}>Sign up</button>
+          <button className="text-gray-700 px-4 py-2 rounded hover:bg-gray-100 hidden xl:block" onClick={onSignIn}>Login</button>
+          <button className="bg-primary text-white px-5 py-2 rounded hover:bg-primary/90 font-semibold hidden xl:block" onClick={onSignUp}>Sign up</button>
           {/* Mobile icon buttons */}
-          <button className="text-primary p-2 rounded hover:bg-gray-100 md:hidden" onClick={onSignIn} aria-label="Login">
+          <button className="text-primary p-2 rounded hover:bg-gray-100 xl:hidden" onClick={onSignIn} aria-label="Login">
             <FaUser className="text-xl" />
           </button>
-          {/* <button className="bg-primary text-white p-2 rounded hover:bg-primary/90 font-semibold md:hidden" onClick={onSignUp} aria-label="Sign up">
+          {/* <button className="bg-primary text-white p-2 rounded hover:bg-primary/90 font-semibold xl:hidden" onClick={onSignUp} aria-label="Sign up">
             <FaUserPlus className="text-xl" />
           </button> */}
-          <button className="p-2 rounded hover:bg-gray-100 md:hidden" onClick={() => setMobileMenuOpen(v => !v)} aria-label="Menu" aria-expanded={mobileMenuOpen}>
+          <button className="p-2 rounded hover:bg-gray-100 xl:hidden" onClick={() => setMobileMenuOpen(v => !v)} aria-label="Menu" aria-expanded={mobileMenuOpen}>
             <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-menu"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
           </button>
         </div>
       </div>
       {/* Mobile menu overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-20 bg-white z-20 shadow-lg animate-slide-down overflow-y-auto">
+        <div className="xl:hidden fixed inset-0 top-20 bg-white z-20 shadow-lg animate-slide-down overflow-y-auto">
           <nav className="flex flex-col gap-8 p-6 text-base font-medium text-gray-700">
             {/* ORGANIZE PDF */}
             <div>

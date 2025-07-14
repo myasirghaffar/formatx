@@ -140,7 +140,7 @@ const tools = [
 const ToolsGrid = () => (
   <section className="py-12 bg-[#f7f6fb] bg-opacity-50 text-center border-b border-gray-200">
     <div className="max-w-7xl mx-auto px-4">
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-1">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-1">
         {tools.map((tool) => {
           const Icon = tool.icon;
           return (
@@ -161,7 +161,7 @@ const ToolsGrid = () => (
                   New Tool
                 </span>
               )}
-              <h3 className="text-base font-semibold mb-2">{tool.title}</h3>
+              <h3 className="text-lg font-semibold mb-2">{tool.title}</h3>
               <p className="text-xs text-gray-600">{tool.desc}</p>
             </Link>
           );

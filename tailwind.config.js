@@ -10,7 +10,10 @@ export default {
         primary: '#FF5F1F',
         'primary-light': '#FFE5D6',
       },
+      screens: {
+        'xl': '1200px',
+      },
     },
   },
   plugins: [],
-} 
+}
