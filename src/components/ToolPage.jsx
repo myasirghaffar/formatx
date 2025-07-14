@@ -5,7 +5,14 @@ import React, { useRef, useState } from "react";
 const toolConfig = {
   "merge-pdf": { api: "merge", multiple: true, accept: "application/pdf", resultName: "result.pdf" },
   "compress-pdf": { api: "compress", multiple: false, accept: "application/pdf", resultName: "result.pdf" },
-  "pdf-to-word": { api: "convert", multiple: false, accept: "application/pdf", resultName: "result.docx" },
+  "pdf-to-word": { api: "pdf-to-word", multiple: false, accept: "application/pdf", resultName: "converted.docx" },
+  "pdf-to-powerpoint": { api: "pdf-to-powerpoint", multiple: false, accept: "application/pdf", resultName: "converted.pptx" },
+  "pdf-to-excel": { api: "pdf-to-excel", multiple: false, accept: "application/pdf", resultName: "converted.xlsx" },
+  "word-to-pdf": { api: "word-to-pdf", multiple: false, accept: ".doc,.docx", resultName: "converted.pdf" },
+  "powerpoint-to-pdf": { api: "powerpoint-to-pdf", multiple: false, accept: ".ppt,.pptx", resultName: "converted.pdf" },
+  "excel-to-pdf": { api: "excel-to-pdf", multiple: false, accept: ".xls,.xlsx", resultName: "converted.pdf" },
+  "jpg-to-pdf": { api: "jpg-to-pdf", multiple: true, accept: "image/*", resultName: "converted.pdf" },
+  "pdf-to-jpg": { api: "pdf-to-jpg", multiple: false, accept: "application/pdf", resultName: "converted.jpg" },
 };
 
 const ToolPage = ({ title, desc, button }) => {
@@ -28,18 +35,39 @@ const ToolPage = ({ title, desc, button }) => {
     }
     setLoading(true);
     try {
-      // Custom uploadPDF to return blob
       const formData = new FormData();
-      files.forEach(file => formData.append('files', file));
-      const response = await fetch(`http://localhost:5000/api/pdf/${config.api}`, {
+      
+      // Handle single file upload for most conversions
+      if (config.multiple) {
+        files.forEach(file => formData.append('files', file));
+      } else {
+        formData.append('file', files[0]);
+      }
+      
+      const apiUrl = `http://localhost:5000/api/${config.api}`;
+      console.log('Making request to:', apiUrl);
+      console.log('File being uploaded:', files[0]?.name);
+      
+      const response = await fetch(apiUrl, {
         method: 'POST',
         body: formData
       });
-      if (!response.ok) throw new Error('API request failed');
+      
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('API Error:', errorText);
+        throw new Error(`API request failed (${response.status}): ${errorText}`);
+      }
+      
       const blob = await response.blob();
+      console.log('Blob received:', blob.size, 'bytes');
       const url = window.URL.createObjectURL(blob);
       setDownloadUrl(url);
     } catch (e) {
+      console.error('Upload error:', e);
       setError(e.message);
     } finally {
       setLoading(false);

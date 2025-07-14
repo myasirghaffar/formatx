@@ -1,21 +1,24 @@
-// Utility function to interact with PDF API endpoints
-export async function uploadPDF(api, files) {
-    const formData = new FormData();
-    files.forEach(file => formData.append('files', file)); // For merge, or single file for compress/convert
-    const response = await fetch(`http://localhost:5000/api/pdf/${api}`, {
-        method: 'POST',
-        body: formData
-    });
-    if (!response.ok) {
-        throw new Error('API request failed');
-    }
-    const blob = await response.blob();
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = api === 'convert' ? 'result.docx' : 'result.pdf';
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    window.URL.revokeObjectURL(url);
-} 
+// Example usage for PDF to Word conversion
+const handlePdfToWord = async (selectedFile) => {
+  const formData = new FormData();
+  formData.append("file", selectedFile);
+
+  const response = await fetch("http://localhost:5000/api/pdf-to-word", {
+    method: "POST",
+    body: formData,
+  });
+  
+  if (!response.ok) {
+    throw new Error(`API request failed: ${await response.text()}`);
+  }
+  
+  const blob = await response.blob();
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "converted.docx";
+  a.click();
+  window.URL.revokeObjectURL(url);
+};
+
+export { handlePdfToWord };
