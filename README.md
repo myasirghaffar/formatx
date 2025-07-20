@@ -1,12 +1,32 @@
-# React + Vite
+# FormatX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**FormatX** is a powerful document management and conversion tool, now rebuilt using **Next.js**, **TypeScript**, and **Tailwind CSS** for better performance, scalability, and developer experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧩 Key Features
 
-## Expanding the ESLint configuration
+- 📄 Convert files between formats (PDF ↔ Word, Excel, etc.)
+- 🧷 Merge and split PDF files
+- 🧼 Clean and responsive UI built with Tailwind CSS
+- ⚡ Fast server-side rendering with Next.js
+- 🔐 Type-safe code using TypeScript
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Tooling:** ESLint, Prettier
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/formatx.git
+cd formatx
