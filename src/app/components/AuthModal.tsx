@@ -54,7 +54,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ open, onClose, mode, onSwitchMode
         <div className="text-center mt-4 text-sm">
           {mode === "signin" ? (
             <span>
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <button className="text-primary underline" onClick={onSwitchMode}>Sign Up</button>
             </span>
           ) : (

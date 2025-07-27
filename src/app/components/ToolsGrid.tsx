@@ -8,10 +8,8 @@ import {
   FaFileImage,
   FaFileSignature,
   FaWater,
-  FaSyncAlt,
   FaEdit,
   FaCompress,
-  FaFileAlt,
 } from "react-icons/fa";
 import { MdOutlineRotate90DegreesCcw } from "react-icons/md";
 import { IconType } from 'react-icons';

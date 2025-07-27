@@ -4,17 +4,17 @@ export const API_CONFIG = {
   TIMEOUT: parseInt(process.env.NEXT_PUBLIC_API_TIMEOUT || '30000'),
 } as const;
 
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   success: boolean;
   data?: T;
   error?: string;
   message?: string;
 }
 
-export interface ApiError {
+export interface ApiErrorInterface {
   message: string;
   status: number;
-  details?: any;
+  details?: unknown;
 }
 
 // API utility functions
@@ -81,7 +81,7 @@ export class ApiClient {
   async uploadFile(
     endpoint: string,
     file: File,
-    additionalData?: Record<string, any>
+    additionalData?: Record<string, string>
   ): Promise<Blob> {
     const formData = new FormData();
     formData.append('file', file);
@@ -102,11 +102,11 @@ export class ApiClient {
   async uploadMultipleFiles(
     endpoint: string,
     files: File[],
-    additionalData?: Record<string, any>
+    additionalData?: Record<string, string>
   ): Promise<Blob> {
     const formData = new FormData();
     
-    files.forEach((file, index) => {
+    files.forEach((file) => {
       formData.append('files', file);
     });
     
@@ -170,7 +170,7 @@ export class ApiError extends Error {
   constructor(
     message: string,
     public status: number,
-    public details?: any
+    public details?: unknown
   ) {
     super(message);
     this.name = 'ApiError';

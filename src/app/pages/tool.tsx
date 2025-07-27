@@ -1,7 +1,7 @@
 "use client";
 
 import { FaCloudUploadAlt } from "react-icons/fa";
-import React, { useRef, useState, useEffect, useMemo } from "react";
+import React, { useRef, useState, useMemo } from "react";
 import { apiClient, ApiError } from "../../utils/api";
 import { usePathname } from "next/navigation";
 import NotFound from "../components/NotFound";
@@ -94,11 +94,10 @@ export default function ToolPage() {
     setUploadProgress(0);
 
     try {
-      let response;
       if (currentTool.multiple) {
-        response = await apiClient.uploadMultipleFiles(`/api/${currentTool.api}`, Array.from(files));
+        await apiClient.uploadMultipleFiles(`/api/${currentTool.api}`, Array.from(files));
       } else {
-        response = await apiClient.uploadFile(`/api/${currentTool.api}`, files[0]);
+        await apiClient.uploadFile(`/api/${currentTool.api}`, files[0]);
       }
       setSuccess("File processed successfully!");
       setUploadProgress(100);
@@ -133,7 +132,7 @@ export default function ToolPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-[80vh] bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">

@@ -1,7 +1,8 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from "react";
-import { FaUser, FaUserPlus, FaFilePdf, FaFileWord, FaFilePowerpoint, FaFileExcel, FaFileImage, FaUnlock, FaLock, FaSignature, FaEraser, FaBalanceScale, FaFileAlt, FaFileArchive, FaFileMedical, FaFileContract, FaRegFilePdf, FaRegFileImage, FaRegFileWord, FaRegFilePowerpoint, FaRegFileExcel, FaRegFileCode, FaRegFile, FaCut, FaCogs, FaSearch, FaSyncAlt, FaEdit, FaCompress, FaWater, FaCrop, FaListOl } from "react-icons/fa";
+import { FaUser, FaFilePdf, FaFileWord, FaFilePowerpoint, FaFileExcel, FaFileImage, FaUnlock, FaLock, FaSignature, FaEraser, FaBalanceScale, FaFileArchive, FaFileMedical, FaRegFileCode, FaCut, FaCogs, FaSearch, FaSyncAlt, FaEdit, FaCompress, FaWater, FaCrop, FaListOl } from "react-icons/fa";
 import { MdOutlineRotate90DegreesCcw } from "react-icons/md";
 
 interface HeaderProps {
@@ -42,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn = () => {}, onSignUp = () => {
       <div className="max-w-8xl mx-auto px-4 w-full flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <Link href="/">
-            <img src="/logo.png" alt="logo" className="h-14 w-auto" />
+            <Image src="/logo.png" alt="logo" width={56} height={56} className="h-14 w-auto" />
           </Link>
         </div>
         <div className="flex items-center space-x-4">

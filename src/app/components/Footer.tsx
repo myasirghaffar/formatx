@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram, FaTiktok, FaGlobe } from "react-icons/fa";
 
 const Footer: React.FC = () => (
@@ -50,8 +51,8 @@ const Footer: React.FC = () => (
       </div>
       <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-10">
         <div className="flex gap-2">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" className="h-12" />
-          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" className="h-12" />
+          <Image src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" width={135} height={48} className="h-12" />
+          <Image src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" width={135} height={48} className="h-12" />
         </div>
         <div className="flex gap-3 text-2xl">
           <a href="#" aria-label="Twitter" className="hover:text-primary"><FaTwitter /></a>
